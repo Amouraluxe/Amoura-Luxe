@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,25 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Amoura.Luxe ✨</h1>
-        <p>Luxury fashion and lifestyle, delivered with elegance.</p>
+        <h1>Amoura.Luxe ✨</h1>
+        <p>Free Delivery on Orders Over PKR 5,000</p>
+        <p>Customer Service: +92 328 1917967 | Email: ammarkhan2518@gmail.com</p>
+        <a href="https://www.instagram.com/amoura.luxe_/" target="_blank">Follow us on Instagram</a>
+        <a href="/cart">View Cart</a>
     </header>
-
-    <section>
-        <h2>Store Coming Soon</h2>
-        <p>Stay tuned as we prepare your luxury experience.</p>
+    <section class="products">
+        {% for product in products %}
+        <div class="product-card">
+            <img src="/static/{{ product.image }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>PKR {{ product.price }}</p>
+            <a href="/add_to_cart/{{ product.name }}">Add to Cart</a>
+        </div>
+        {% endfor %}
     </section>
+    <footer>
+        <p>© 2025 Amoura.Luxe ✨ All rights reserved.</p>
+    </footer>
 </body>
 </html>
